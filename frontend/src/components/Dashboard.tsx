@@ -4,7 +4,7 @@ import VideoSettings from './VideoSettings';
 import ProgressBar from './ProgressBar';
 import VideoPreview from './VideoPreview';
 import useVideoGeneration from '../hooks/useVideoGeneration';
-import { VideoSettings as IVideoSettings } from '../../shared/types';
+import { VideoSettings as IVideoSettings } from '../types';
 
 const Dashboard: React.FC = () => {
   const [script, setScript] = useState('');
