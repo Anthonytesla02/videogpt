@@ -236,8 +236,12 @@ class ElevenLabsService {
    */
   async getAvailableVoices(): Promise<any[]> {
     try {
-      const voices = await this.client.voices.getAll();
-      return voices;
+      const response = await axios.get(`${this.baseURL}/voices`, {
+        headers: {
+          'xi-api-key': this.apiKey
+        }
+      });
+      return response.data.voices || [];
     } catch (error) {
       console.error('Failed to fetch voices:', error);
       return [];
