@@ -1,4 +1,4 @@
-import { ElevenLabs } from 'elevenlabs';
+import { ElevenLabsClient } from '@elevenlabs/elevenlabs';
 import fs from 'fs/promises';
 import path from 'path';
 import axios from 'axios';
