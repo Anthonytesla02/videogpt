@@ -74,18 +74,27 @@ class ElevenLabsService {
     }
 
     try {
-      // Generate audio using ElevenLabs API
-      const audio = await this.client.generate({
-        voice: voiceIdToUse,
-        text: text,
-        model_id: 'eleven_monolingual_v1',
-        voice_settings: {
-          stability: 0.5,
-          similarity_boost: 0.5,
-          style: 0.0,
-          use_speaker_boost: true
+      // Generate audio using ElevenLabs API directly
+      const response = await axios.post(
+        `${this.baseURL}/text-to-speech/${voiceIdToUse}`,
+        {
+          text: text,
+          model_id: 'eleven_monolingual_v1',
+          voice_settings: {
+            stability: 0.5,
+            similarity_boost: 0.5,
+            style: 0.0,
+            use_speaker_boost: true
+          }
+        },
+        {
+          headers: {
+            'xi-api-key': this.apiKey,
+            'Content-Type': 'application/json'
+          },
+          responseType: 'arraybuffer'
         }
-      });
+      );
 
       // Generate unique filename
       const timestamp = Date.now();
@@ -96,17 +105,8 @@ class ElevenLabsService {
       await fs.mkdir(path.dirname(audioPath), { recursive: true });
 
       // Save audio file
-      if (audio instanceof Uint8Array) {
-        await fs.writeFile(audioPath, audio);
-      } else {
-        // Handle streaming response
-        const chunks: Buffer[] = [];
-        for await (const chunk of audio) {
-          chunks.push(chunk);
-        }
-        const audioBuffer = Buffer.concat(chunks);
-        await fs.writeFile(audioPath, audioBuffer);
-      }
+      const audioBuffer = Buffer.from(response.data);
+      await fs.writeFile(audioPath, audioBuffer);
 
       console.log(`✅ Generated audio: ${filename} for text: "${text.substring(0, 50)}..."`);
       return audioPath;
