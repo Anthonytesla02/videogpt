@@ -6,7 +6,7 @@ import { geminiService } from '../services/geminiService';
 import { elevenLabsService } from '../services/elevenLabsService';
 import { videoService } from '../services/videoService';
 import { ensureDirectoriesExist } from '../utils/fileUtils';
-import { GenerationRequest, GenerationResponse, ProgressUpdate } from '../../../shared/types';
+import { GenerationRequest, GenerationResponse, ProgressUpdate } from '../types';
 
 const router = express.Router();
 
