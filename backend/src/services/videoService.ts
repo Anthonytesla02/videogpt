@@ -263,7 +263,7 @@ class VideoService {
           .audioBitrate('128k')
           .outputFormat('mp4')
           .output(outputPath)
-          .on('progress', (progress) => {
+          .on('progress', (progress: any) => {
             const percent = Math.round(progress.percent || 0);
             progressCallback?.(75 + (percent * 0.2)); // 75% to 95%
           })
@@ -272,7 +272,7 @@ class VideoService {
             progressCallback?.(95);
             resolve(outputPath);
           })
-          .on('error', (error) => {
+          .on('error', (error: any) => {
             console.error('❌ Audio addition failed:', error);
             reject(error);
           });
