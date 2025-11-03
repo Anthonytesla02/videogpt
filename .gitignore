@@ -137,3 +137,25 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# AI Video Generator specific
+backend/uploads/
+backend/videos/
+backend/temp/
+backend/dist/
+frontend/dist/
+frontend/node_modules/.vite/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+*.test.log
+coverage/
