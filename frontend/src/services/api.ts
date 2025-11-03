@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
-import { GenerationRequest, GenerationResponse, VideoStatusResponse } from '../types';
+import type { GenerationRequest, GenerationResponse, VideoStatusResponse } from '../types';
 
 // Create axios instance with default configuration
 const apiClient: AxiosInstance = axios.create({
