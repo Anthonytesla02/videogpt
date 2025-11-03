@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { VideoSettings, ProgressUpdate } from '../../shared/types';
+import { VideoSettings, ProgressUpdate } from '../types';
 import { api } from '../services/api';
 
 interface UseVideoGenerationReturn {
