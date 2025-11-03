@@ -195,7 +195,7 @@ class VideoService {
         .videoCodec('libx264')
         .size(`${width}xheight}`)
         .videoBitrate('2000k')
-        .pixFmt('yuv420p')
+        .outputOptions(['-pix_fmt', 'yuv420p'])
         .outputFormat('mp4')
         .output(outputPath)
         .on('progress', (progress) => {
