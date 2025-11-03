@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { promisify } from 'util';
 import { exec } from 'child_process';
-import { AudioSegment, VideoSettings, VideoTiming } from '../../../shared/types';
+import { AudioSegment, VideoSettings, VideoTiming } from '../types';
 
 const execAsync = promisify(exec);
 
