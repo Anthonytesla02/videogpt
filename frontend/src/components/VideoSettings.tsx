@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoSettings } from '../../shared/types';
+import { VideoSettings } from '../types';
 
 interface VideoSettingsProps {
   settings: VideoSettings;
