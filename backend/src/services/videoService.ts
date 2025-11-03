@@ -198,7 +198,7 @@ class VideoService {
         .outputOptions(['-pix_fmt', 'yuv420p'])
         .outputFormat('mp4')
         .output(outputPath)
-        .on('progress', (progress) => {
+        .on('progress', (progress: any) => {
           const percent = Math.round(progress.percent || 0);
           progressCallback?.(25 + (percent * 0.5)); // 25% to 75%
         })
@@ -206,7 +206,7 @@ class VideoService {
           console.log('✅ Video from images completed');
           resolve(outputPath);
         })
-        .on('error', (error) => {
+        .on('error', (error: any) => {
           console.error('❌ Video creation failed:', error);
           reject(error);
         });
