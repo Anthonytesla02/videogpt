@@ -13,14 +13,14 @@ const VOICE_IDS = {
 };
 
 class ElevenLabsService {
-  private client: ElevenLabs;
+  private client: ElevenLabsClient;
 
   constructor() {
     if (!process.env.ELEVENLABS_API_KEY) {
       console.warn('⚠️ ELEVENLABS_API_KEY not found in environment variables');
     }
 
-    this.client = new ElevenLabs({
+    this.client = new ElevenLabsClient({
       apiKey: process.env.ELEVENLABS_API_KEY
     });
   }
