@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import axios from 'axios';
-import { AudioSegment } from '../../../shared/types';
+import { AudioSegment } from '../types';
 
 // Voice ID mappings for ElevenLabs
 const VOICE_IDS = {
