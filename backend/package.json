@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "@google/generative-ai": "^0.1.3",
-    "@elevenlabs/elevenlabs-js": "^1.0.6",
+    "elevenlabs": "^0.13.0",
     "fluent-ffmpeg": "^2.1.2",
     "ws": "^8.14.2",
     "joi": "^17.11.0",
