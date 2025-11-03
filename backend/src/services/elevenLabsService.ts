@@ -1,4 +1,3 @@
-import { ElevenLabsClient } from '@elevenlabs/elevenlabs';
 import fs from 'fs/promises';
 import path from 'path';
 import axios from 'axios';
@@ -13,16 +12,16 @@ const VOICE_IDS = {
 };
 
 class ElevenLabsService {
-  private client: ElevenLabsClient;
+  private apiKey: string;
+  private baseURL: string;
 
   constructor() {
-    if (!process.env.ELEVENLABS_API_KEY) {
+    this.apiKey = process.env.ELEVENLABS_API_KEY || '';
+    this.baseURL = 'https://api.elevenlabs.io/v1';
+
+    if (!this.apiKey) {
       console.warn('⚠️ ELEVENLABS_API_KEY not found in environment variables');
     }
-
-    this.client = new ElevenLabsClient({
-      apiKey: process.env.ELEVENLABS_API_KEY
-    });
   }
 
   /**
