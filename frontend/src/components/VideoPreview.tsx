@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { VideoSettings } from '../types';
+import type { VideoSettings } from '../types';
 
 interface VideoPreviewProps {
   videoUrl: string;
